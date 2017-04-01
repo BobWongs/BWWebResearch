@@ -1,0 +1,40 @@
+#wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    width: 960px;
+    background-color: chartreuse;
+}
+
+#header {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 940px;
+    background-color: bisque;
+}
+
+#navigation ul li {
+    display: inline-block;
+}
+
+#sidebar {
+    margin-right: 10px;
+    margin-left: 10px;
+    float: left;
+    background-color: aquamarine;
+}
+
+#content {
+    margin-right: 10px;
+    float: right;
+    margin-left: 10px;
+    width: 700px;
+    background-color: coral;
+}
+
+#footer {
+    margin-right: 10px;
+    margin-left: 10px;
+    clear: both;
+    background-color: aqua;
+    width: 940px;
+}
