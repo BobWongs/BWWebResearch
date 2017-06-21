@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study JS</title>
+    
+    <script>
+        function changeText() {
+            var object = document.getElementById("p_id");
+            object.innerHTML = "Hello JS!";
+            object.style.fontSize = "35px";
+            object.style.display = "none";
+        }
+        
+        function printInConsole() {
+            console.log("This is output in console!");
+        }
+        
+        function printObject() {
+            var object = {
+                firstName: "FirstName ",
+                lastName: "LastName ",
+                age: 25
+            }
+            
+            document.getElementById("p2_id").innerHTML = object.firstName + object.lastName + object.age;
+            
+            var fullProperty = "";
+            for(property in object) {
+                fullProperty = fullProperty + property + " ";
+            }
+//            document.getElementById("p2_id").innerHTML = fullProperty;  // Output all property's name
+        }
+    </script>
+</head>
+<body>
+    <p id="p_id">Study JavaScript</p>
+    <button type="button" onclick="changeText()">Click</button><br/>
+    <button type="button" onclick="printInConsole()">Print in console</button><br/>
+    
+    <p id="p2_id">Some object</p>
+    <button type="button" onclick="printObject()">Print object</button>
+</body>
+</html>
