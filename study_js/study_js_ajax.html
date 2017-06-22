@@ -4,23 +4,38 @@
     <title>Study JS AJAX</title>
     
     <script>
-        function loadDoc() {
+        function loadDocWithGet() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("demo").innerHTML = this.responseText;
+                    document.getElementById("text_id").innerHTML = this.responseText;
+                    document.getElementById("status_id").innerHTML = this.status;
                 }
             };
-            xhttp.open("GET", "http:///Users/BobWong/BobWong/Development/Github/Web/BWWebResearch/study_js/ajax_info.txt", true);
+            xhttp.open("GET", "ajax_info.txt", true);
             xhttp.send();
+        }
+        
+        function loadDocWithHTTP() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                
+            };
+            xhttp.open("POST", "", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("key0=value0&key1=value1");
         }
     </script>
 </head>
 <body>
     
-    <div id="demo">
-        <button type="button" onclick="loadDoc()">AJAX</button>
-    </div>
-
+    <button type="button" onclick="loadDocWithGet()">AJAX GET</button>
+        <p>Response text:</p><br/>
+        <p id="text_id"></p><br/>
+        <p>Response status text:</p><br/>
+        <p id="status_id"></p><br/>
+    
+    <button type="button" onclick="loadDocWithHTTP()">AJAX HTTP</button>
+    
 </body>
 </html>
