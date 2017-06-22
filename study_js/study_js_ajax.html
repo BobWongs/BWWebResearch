@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study JS AJAX</title>
+    
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "http:///Users/BobWong/BobWong/Development/Github/Web/BWWebResearch/study_js/ajax_info.txt", true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    
+    <div id="demo">
+        <button type="button" onclick="loadDoc()">AJAX</button>
+    </div>
+
+</body>
+</html>
