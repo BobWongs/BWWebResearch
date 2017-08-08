@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      <div className="Top-title">To Do List</div>
-      <div className="Input-view">
+      <div className="Top-title">
+        <div className="Title-text">To Do List</div>
+        </div>
+      <div className="Input-container">
         <form action="">
-          Input:
-          <input type="text" />
-          <button>Add</button>
+          <input className="Input-field" type="text" placeholder="Please input here" />
+          <button className="Add-button">Add</button>
         </form>
       </div>
       <div className="List-view">
