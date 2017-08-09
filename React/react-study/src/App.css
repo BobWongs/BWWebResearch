@@ -17,23 +17,49 @@
 .Input-container {
   background-color: paleturquoise;
   height: 40px;
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 }
 
 .Input-field {
-  flex-direction: row;
+  /* flex-direction: column; */
+  /* flex: 1; */
+
+  display: flex;
+  -webkit-flex: 1;
+  flex: 1;
   margin-left: 20px;
   font-size: 16px;
 }
 
 .Add-button {
+  margin-left: 10px;
   width: 100px;
   height: 40px;
 }
 
 .List-view {
   background-color: green;
+}
+
+.My-div-container {
+  background-color: orange; 
+  width: 800px;
+  height: 100px;
+}
+
+.My-left-element {
+  position: relative;  
+  background-color: yellow;
+  width: 170px;
+  height: 30px;
+}
+
+.My-right-element {
+  position: relative;
+  background-color: yellowgreen;
+  width: 170px;
+  height: 50px;
 }
 
 

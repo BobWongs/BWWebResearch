@@ -21,6 +21,10 @@ class App extends Component {
           <li>Third</li>
         </ul>
       </div>
+      <div className="My-div-container">
+        <span className="My-left-element">Left element</span>
+        <span className="My-right-element">Right element</span>
+      </div>
       </div>
     );
   }
