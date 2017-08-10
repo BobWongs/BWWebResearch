@@ -15,32 +15,51 @@
 }
 
 .Input-container {
+  display: flex;  
+  height: 60px;
   background-color: paleturquoise;
-  height: 40px;
-  /* display: flex;
-  flex-direction: row; */
+  align-items: center;
 }
 
 .Input-field {
-  /* flex-direction: column; */
   /* flex: 1; */
-
-  display: flex;
-  -webkit-flex: 1;
-  flex: 1;
+  flex-grow: 1;
   margin-left: 20px;
+  height: 30px;
   font-size: 16px;
 }
 
 .Add-button {
   margin-left: 10px;
+  margin-right: 20px;
   width: 100px;
-  height: 40px;
+  height: 30px;
 }
 
 .List-view {
   background-color: green;
 }
+
+.List-item {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.List-item-title {
+  flex: 1;
+  margin-left: 20px;
+  background-color: lightgreen;
+}
+
+.List-item-button {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 80px;
+  background-color: lightpink;
+}
+
 
 .My-div-container {
   background-color: orange; 
