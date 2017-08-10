@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const deleteButtonIdPrefix = 'Delete-button-id-prefix'
+
 class App extends Component {
   render() {
     const titleView = (
@@ -12,39 +14,15 @@ class App extends Component {
     const inputView = (
       <div className="Input-container">
         <input id="Input-field-id" className="Input-field" type="text" placeholder="Please input here" />
-        <button className="Add-button" onClick={this._onClick}>Add</button>
+        <button className="Add-button" onClick={this.addToDoList}>Add</button>
       </div>
     );
-
-    // const listView = (
-    //   <div>
-    //     <ul className="List-view">
-          
-    //       <li className="List-item">
-    //         <span className="List-item-title">First</span>
-    //         <button className="List-item-button">Delete</button>
-    //         </li>
-    //       <li>Second</li>
-    //       <li>Third</li>
-    //     </ul>
-    //   </div>
-    // );
-
-    var listView = this.getToDoList()
-    console.log(listView)
-
-    // const testView = (
-    //   <div className="My-div-container">
-    //     <span className="My-left-element">Left element</span>
-    //     <span className="My-right-element">Right element</span>
-    //   </div>
-    // );
 
     return (
       <div className="App">
         {titleView}
         {inputView}
-        {listView}
+        {this.state.listView}
       </div>
     );
   }
@@ -52,25 +30,56 @@ class App extends Component {
   constructor() {
     super()
     this.addedList = ['First', 'Second']
-    this._onClick = this._onClick.bind(this)
+
+    this.addToDoList = this.addToDoList.bind(this)
     this.getToDoList = this.getToDoList.bind(this)
+    this.deleteToDoItem = this.deleteToDoItem.bind(this)
+    this.reloadListData = this.reloadListData.bind(this)
+
+    this.state = {
+      listView: this.getToDoList()
+    }
   }
 
-  _onClick() {
+  addToDoList() {
     let element = document.getElementById('Input-field-id')
     let text = element.value
     console.log('Inputed text: ' + text)
 
-    this.addedList.push(text)
+    if (text) {
+      this.addedList.push(text)
+      this.reloadListData();
+    }
+  }
+
+  deleteToDoItem(e) {
+    console.log('e: ' + e.target.id)
+    let idStr = e.target.id
+    let indexIdStr = idStr.substr(deleteButtonIdPrefix.length)
+    this.addedList.splice(Number(indexIdStr), 1)
+    this.reloadListData()
+  }
+
+  reloadListData() {
     console.log('Added list: ' + this.addedList)
+    this.setState({
+        listView: this.getToDoList()
+      })
   }
 
   getToDoList() {
-    const listItems = this.addedList.map((item) => 
-      <li>{item}</li>
+    const listItems = this.addedList.map((item, index) => {
+      let buttonId = deleteButtonIdPrefix + index
+      return (
+        <li className="List-item">
+        <span className="List-item-title">{item}</span>
+        <button id={buttonId} className="List-item-button" onClick={this.deleteToDoItem}>Delete</button>
+        </li>
+      )
+    }
     )
     return (
-      <ul>{listItems}</ul>
+      <ul className="List-view">{listItems}</ul>
     );
   }
 }

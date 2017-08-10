@@ -37,7 +37,11 @@
 }
 
 .List-view {
+  padding: 0;
+  list-style-type: none; 
   background-color: green;
+  max-height: 300px;
+  overflow: scroll;
 }
 
 .List-item {
